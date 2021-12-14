@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectKinosal", "PerfectKinosal\PerfectKinosal.csproj", "{3B26633E-D312-4C3B-9F20-322F003DFC7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B26633E-D312-4C3B-9F20-322F003DFC7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B26633E-D312-4C3B-9F20-322F003DFC7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B26633E-D312-4C3B-9F20-322F003DFC7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B26633E-D312-4C3B-9F20-322F003DFC7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DEB34C3-0554-4D46-8533-216B36452F9B}
+	EndGlobalSection
+EndGlobal
