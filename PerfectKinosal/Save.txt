@@ -1,0 +1,14 @@
+32$../../Pictures/empty.png
+33$../../Pictures/empty.png
+34$../../Pictures/empty.png
+35$../../Pictures/empty.png
+36$../../Pictures/empty.png
+37$../../Pictures/reserve.png
+40$../../Pictures/empty.png
+41$../../Pictures/empty.png
+42$../../Pictures/empty.png
+43$../../Pictures/empty.png
+44$../../Pictures/empty.png
+45$../../Pictures/empty.png
+46$../../Pictures/empty.png
+47$../../Pictures/reserve.png
