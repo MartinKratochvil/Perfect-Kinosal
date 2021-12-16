@@ -59,11 +59,12 @@ namespace PerfectKinosal {
                             } 
                             else { line = i + j + "$../../Pictures/reserve.png"; GnrDoub = true; }
                         }
-                        //MessageBox.Show(line);
-                        //if ((restriction && i % 2 == 0 && j % 2 == 0) || (restriction && i % 2 != 0 && j % 2 != 0)) { line = i + j + "$../../Pictures/block.png"; }
-                        if (restriction && ((((i % 2 == 0 && j == 0) && (line.Split('$')[1] != "../../Pictures/emptyL.png" && line.Split('$')[1] != "../../Pictures/reserveL.png" && line.Split('$')[1] != "../../Pictures/takeL.png")) || 
-                            ((i % 2 != 0 && j == 1) && (line.Split('$')[1] != "../../Pictures/emptyR.png" && line.Split('$')[1] != "../../Pictures/reserveR.png" && line.Split('$')[1] != "../../Pictures/takeR.png"))))) { line = i + j + "$../../Pictures/block.png"; }
-                        else if (restriction && ((i % 2 == 0 && j > 0) || (i % 2 != 0 && j > 1)) && ((((line.Split('$')[1] == "../../Pictures/emptyL.png" || line.Split('$')[1] == "../../Pictures/reserveL.png" || line.Split('$')[1] == "../../Pictures/takeL.png") || (line.Split('$')[1] != "../../Pictures/emptyR.png" && line.Split('$')[1] != "../../Pictures/reserveR.png" && line.Split('$')[1] != "../../Pictures/takeR.png")) && Seats[i, j - 1].ImageLocation != "../../Pictures/block.png") || ((line.Split('$')[1] == "../../Pictures/emptyP.png" || line.Split('$')[1] == "../../Pictures/reserveP.png" || line.Split('$')[1] == "../../Pictures/takeP.png") && Seats[i, j - 1].ImageLocation == "../../Pictures/block.png"))) { line = i + j + "$../../Pictures/block.png"; }
+                        if (restriction && ((i % 2 == 0 && j == 0) || (i % 2 != 0 && j == 1 && (line.Split('$')[1] != "../../Pictures/emptyR.png" && line.Split('$')[1] != "../../Pictures/reserveR.png" && line.Split('$')[1] != "../../Pictures/takeR.png")))) { line = i + j + "$../../Pictures/block.png"; }
+                        else if (j > 0) {
+                            if (restriction && ((i % 2 == 0 || (i % 2 != 0 && j > 1)) && (((line.Split('$')[1] == "../../Pictures/emptyR.png" || line.Split('$')[1] == "../../Pictures/reserveR.png" || line.Split('$')[1] == "../../Pictures/takeR.png") && Seats[i, j - 1].ImageLocation == "../../Pictures/block.png") || ((line.Split('$')[1] != "../../Pictures/emptyR.png" && line.Split('$')[1] != "../../Pictures/emptyR.png" && line.Split('$')[1] != "../../Pictures/emptyR.png") && Seats[i, j - 1].ImageLocation != "../../Pictures/block.png")))) { 
+                                line = i + j + "$../../Pictures/block.png"; 
+                            }
+                        }
                         Seats[i, j] = new PictureBox {
                             Name = "pictureBox" + i.ToString() + j.ToString(),
                             Size = new Size(30, 30),
