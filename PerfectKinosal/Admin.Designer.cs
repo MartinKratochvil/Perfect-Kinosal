@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonNastavitPocetSedacek = new System.Windows.Forms.Button();
             this.numericUpDownRady = new System.Windows.Forms.NumericUpDown();
@@ -42,10 +43,9 @@
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(183, 165);
-            this.buttonReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonReset.Location = new System.Drawing.Point(137, 134);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(141, 43);
+            this.buttonReset.Size = new System.Drawing.Size(106, 35);
             this.buttonReset.TabIndex = 0;
             this.buttonReset.Text = "Resetování kina";
             this.buttonReset.UseVisualStyleBackColor = true;
@@ -53,10 +53,9 @@
             // 
             // buttonNastavitPocetSedacek
             // 
-            this.buttonNastavitPocetSedacek.Location = new System.Drawing.Point(23, 165);
-            this.buttonNastavitPocetSedacek.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonNastavitPocetSedacek.Location = new System.Drawing.Point(17, 134);
             this.buttonNastavitPocetSedacek.Name = "buttonNastavitPocetSedacek";
-            this.buttonNastavitPocetSedacek.Size = new System.Drawing.Size(128, 43);
+            this.buttonNastavitPocetSedacek.Size = new System.Drawing.Size(96, 35);
             this.buttonNastavitPocetSedacek.TabIndex = 1;
             this.buttonNastavitPocetSedacek.Text = "Uložit nastavení";
             this.buttonNastavitPocetSedacek.UseVisualStyleBackColor = true;
@@ -64,8 +63,7 @@
             // 
             // numericUpDownRady
             // 
-            this.numericUpDownRady.Location = new System.Drawing.Point(184, 49);
-            this.numericUpDownRady.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownRady.Location = new System.Drawing.Point(138, 40);
             this.numericUpDownRady.Maximum = new decimal(new int[] {
             10,
             0,
@@ -77,7 +75,7 @@
             0,
             0});
             this.numericUpDownRady.Name = "numericUpDownRady";
-            this.numericUpDownRady.Size = new System.Drawing.Size(160, 22);
+            this.numericUpDownRady.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownRady.TabIndex = 2;
             this.numericUpDownRady.Value = new decimal(new int[] {
             5,
@@ -87,8 +85,7 @@
             // 
             // numericUpDownSedacky
             // 
-            this.numericUpDownSedacky.Location = new System.Drawing.Point(183, 87);
-            this.numericUpDownSedacky.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownSedacky.Location = new System.Drawing.Point(137, 71);
             this.numericUpDownSedacky.Maximum = new decimal(new int[] {
             20,
             0,
@@ -100,7 +97,7 @@
             0,
             0});
             this.numericUpDownSedacky.Name = "numericUpDownSedacky";
-            this.numericUpDownSedacky.Size = new System.Drawing.Size(160, 22);
+            this.numericUpDownSedacky.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownSedacky.TabIndex = 3;
             this.numericUpDownSedacky.Value = new decimal(new int[] {
             5,
@@ -111,39 +108,37 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 52);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(74, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Počet řad:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 90);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(15, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 16);
+            this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Počet sedaček v řadě:";
             // 
             // checkBoxRestrikce
             // 
             this.checkBoxRestrikce.AutoSize = true;
-            this.checkBoxRestrikce.Location = new System.Drawing.Point(183, 130);
-            this.checkBoxRestrikce.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxRestrikce.Location = new System.Drawing.Point(137, 106);
             this.checkBoxRestrikce.Name = "checkBoxRestrikce";
-            this.checkBoxRestrikce.Size = new System.Drawing.Size(86, 20);
+            this.checkBoxRestrikce.Size = new System.Drawing.Size(71, 17);
             this.checkBoxRestrikce.TabIndex = 6;
             this.checkBoxRestrikce.Text = "Restrikce";
             this.checkBoxRestrikce.UseVisualStyleBackColor = true;
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(255, 250);
+            this.buttonBack.Location = new System.Drawing.Point(191, 203);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(103, 42);
+            this.buttonBack.Size = new System.Drawing.Size(77, 34);
             this.buttonBack.TabIndex = 7;
             this.buttonBack.Text = "Zpět";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -151,9 +146,9 @@
             // 
             // Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 304);
+            this.ClientSize = new System.Drawing.Size(278, 247);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.checkBoxRestrikce);
             this.Controls.Add(this.label2);
@@ -162,7 +157,7 @@
             this.Controls.Add(this.numericUpDownRady);
             this.Controls.Add(this.buttonNastavitPocetSedacek);
             this.Controls.Add(this.buttonReset);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin";
             this.Text = "Admin";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Admin_FormClosed);
