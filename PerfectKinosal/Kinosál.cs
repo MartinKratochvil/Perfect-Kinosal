@@ -53,7 +53,16 @@ namespace PerfectKinosal {
                 }
             }
         }
+
+		private void buttonLogin_Click(object sender, EventArgs e)
+		{
+            this.Hide();
+            AdminLogin AdminLogin = new AdminLogin();
+            AdminLogin.Show();
+		}
+
         private void ChangeSeat(object sender, EventArgs e) {
+
             MessageBox.Show((sender as PictureBox).Name);
             //vybrání rezervace - koupení / (sender as PictureBox)
         }

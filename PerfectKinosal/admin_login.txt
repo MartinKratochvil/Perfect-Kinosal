@@ -1,0 +1,4 @@
+admin1$heslo1
+admin2$heslo2
+admin3$heslo3
+trosecnik13$letadlo
