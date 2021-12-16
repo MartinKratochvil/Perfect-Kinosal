@@ -61,7 +61,8 @@ namespace PerfectKinosal {
             AdminLogin.Show();
 		}
 
-		private void ChangeSeat(object sender, EventArgs e) {
+        private void ChangeSeat(object sender, EventArgs e) {
+
             MessageBox.Show((sender as PictureBox).Name);
             //vybrání rezervace - koupení / (sender as PictureBox)
         }
