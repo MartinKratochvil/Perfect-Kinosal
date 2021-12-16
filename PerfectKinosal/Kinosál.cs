@@ -32,6 +32,15 @@ namespace PerfectKinosal {
         public static int SizeLine = 5, SizeSeat = 8;
         PictureBox[,] Seats = new PictureBox[SizeLine,SizeSeat];
         private void Kinosál_Load(object sender, EventArgs e) {
+            bool restriction;
+            using (StreamReader read = File.OpenText(@"../../sedacky.txt")) {
+                string line = read.ReadLine();
+                SizeLine = Int32.Parse(line.Split('$')[0]);
+                SizeSeat = Int32.Parse(line.Split('$')[1]);
+                line = read.ReadLine();
+                if (line.Split('=')[1] == "true" ) { restriction = true; }
+                else { restriction = false; }
+            }
             using (StreamReader read = File.OpenText(@"../../Save.txt")) {
                 for (int i = 0; i < SizeLine; i++) {
                     string line = "", subLine = "";
@@ -40,6 +49,8 @@ namespace PerfectKinosal {
                         else { line = subLine; subLine = ""; }
                         if (line == null) { subLine = line; line = i + j +"$../../Pictures/take.png"; }
                         if (line.Split('$')[0] != i.ToString() + j.ToString()) { subLine = line; line = "$../../Pictures/take.png"; }
+                        if (restriction && i % 2 == 0 && j % 2 == 0) { line = "$../../Pictures/block.png"; }
+                        else if (restriction && j % 2 != 0) { line = "$../../Pictures/block.png"; }
                         Seats[i, j] = new PictureBox {
                             Name = "pictureBox" + i.ToString() + j.ToString(),
                             Size = new Size(30, 30),
