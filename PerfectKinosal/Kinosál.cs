@@ -42,16 +42,28 @@ namespace PerfectKinosal {
                 if (line.Split('=')[1] == "true" ) { restriction = true; }
                 else { restriction = false; }
             }
-            using (StreamReader read = File.OpenText(@"../../Save.txt")) {
+            using (StreamReader read = File.OpenText(@"../../save.txt")) {
+                Random rnd = new Random();
+                bool GnrDoub = false;
                 for (int i = 0; i < SizeLine; i++) {
                     string line = "", subLine = "";
                     for (int j = 0; j < SizeSeat; j++) {
-                        if (subLine == "") { line = read.ReadLine(); }
+                        if (subLine == "") { line = read.ReadLine(); GnrDoub = false; }
                         else { line = subLine; subLine = ""; }
-                        if (line == null) { subLine = line; line = i + j +"$../../Pictures/take.png"; }
-                        if (line.Split('$')[0] != i.ToString() + j.ToString()) { subLine = line; line = "$../../Pictures/take.png"; }
-                        if (restriction && i % 2 == 0 && j % 2 ==0) { line = "$../../Pictures/block.png"; }
-                        else if (restriction && i % 2 != 0 && j % 2 != 0) { line = "$../../Pictures/block.png"; }
+                        if (line == null || line.Split('$')[0] != i.ToString() + j.ToString()) { 
+                            subLine = line;
+                            if (GnrDoub && rnd.Next(0, 5) == 3 && i > 0 && j > 0 && Seats[i, j - 1].ImageLocation != "../../Pictures/block.png") { 
+                                Seats[i, j - 1].ImageLocation = @"../../Pictures/emptyL.png"; 
+                                line = i + j + "$../../Pictures/emptyR.png"; 
+                                GnrDoub = false;
+                            } 
+                            else { line = i + j + "$../../Pictures/reserve.png"; GnrDoub = true; }
+                        }
+                        //MessageBox.Show(line);
+                        //if ((restriction && i % 2 == 0 && j % 2 == 0) || (restriction && i % 2 != 0 && j % 2 != 0)) { line = i + j + "$../../Pictures/block.png"; }
+                        if (restriction && ((((i % 2 == 0 && j == 0) && (line.Split('$')[1] != "../../Pictures/emptyL.png" && line.Split('$')[1] != "../../Pictures/reserveL.png" && line.Split('$')[1] != "../../Pictures/takeL.png")) || 
+                            ((i % 2 != 0 && j == 1) && (line.Split('$')[1] != "../../Pictures/emptyR.png" && line.Split('$')[1] != "../../Pictures/reserveR.png" && line.Split('$')[1] != "../../Pictures/takeR.png"))))) { line = i + j + "$../../Pictures/block.png"; }
+                        else if (restriction && ((i % 2 == 0 && j > 0) || (i % 2 != 0 && j > 1)) && ((((line.Split('$')[1] == "../../Pictures/emptyL.png" || line.Split('$')[1] == "../../Pictures/reserveL.png" || line.Split('$')[1] == "../../Pictures/takeL.png") || (line.Split('$')[1] != "../../Pictures/emptyR.png" && line.Split('$')[1] != "../../Pictures/reserveR.png" && line.Split('$')[1] != "../../Pictures/takeR.png")) && Seats[i, j - 1].ImageLocation != "../../Pictures/block.png") || ((line.Split('$')[1] == "../../Pictures/emptyP.png" || line.Split('$')[1] == "../../Pictures/reserveP.png" || line.Split('$')[1] == "../../Pictures/takeP.png") && Seats[i, j - 1].ImageLocation == "../../Pictures/block.png"))) { line = i + j + "$../../Pictures/block.png"; }
                         Seats[i, j] = new PictureBox {
                             Name = "pictureBox" + i.ToString() + j.ToString(),
                             Size = new Size(30, 30),
@@ -65,16 +77,12 @@ namespace PerfectKinosal {
                 }
             }
         }
-
-		private void buttonLogin_Click(object sender, EventArgs e)
-		{
+		private void buttonLogin_Click(object sender, EventArgs e) {
             this.Hide();
             AdminLogin AdminLogin = new AdminLogin();
             AdminLogin.Show();
 		}
-
         private void ChangeSeat(object sender, EventArgs e) {
-
             MessageBox.Show((sender as PictureBox).Name);
             //vybrání rezervace - koupení / (sender as PictureBox)
         }
