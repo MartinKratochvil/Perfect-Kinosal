@@ -15,6 +15,24 @@ namespace PerfectKinosal {
             InitializeComponent();
         }
         private void Kinosál_FormClosed(object sender, FormClosedEventArgs e) {
+            using (StreamWriter write = File.CreateText(@"../../save.txt")) {
+                for (int i = 0; i < SizeLine; ++i) {
+                    for (int j = 0; j < SizeSeat; j++) {
+                        if (Seats[i, j].ImageLocation == "../../Pictures/block.png") {
+                            if (j < SizeSeat - 1 && Seats[i, j + 1].ImageLocation == "../../Pictures/block.png") {
+                                write.WriteLine(i.ToString() + j.ToString() + "$../../Pictures/emptyL.png");
+                            }
+                            else if (j > 0 && Seats[i, j - 1].ImageLocation == "../../Pictures/emptyL.png") {
+                                write.WriteLine(i.ToString() + j.ToString() + "$../../Pictures/emptyR.png");
+                            }
+                            else {
+                                write.WriteLine(i.ToString() + j.ToString() + "$../../Pictures/empty.png");
+                            }
+                        }
+                        else { write.WriteLine(i.ToString() + j.ToString() + "$" + Seats[i, j].ImageLocation); }
+                    }
+                }
+            }
             Application.Exit();
         }
         //write to text file
