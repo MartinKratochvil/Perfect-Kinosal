@@ -84,7 +84,7 @@ namespace PerfectKinosal {
                             }
                         }
                         Seats[i, j] = new PictureBox {
-                            Name = "pictureBox" + i.ToString() + j.ToString(),
+                            Name = "pictureBox:" + i.ToString() + ":" + j.ToString(),
                             Size = new Size(30, 30),
                             Location = new Point(33 * j + 30, 33 * i + 30),
                             ImageLocation = @line.Split('$')[1],
@@ -102,8 +102,47 @@ namespace PerfectKinosal {
             AdminLogin.Show();
 		}
         private void ChangeSeat(object sender, EventArgs e) {
-            MessageBox.Show((sender as PictureBox).Name);
+            //MessageBox.Show((sender as PictureBox).Name); 
             //vybrání rezervace - koupení / (sender as PictureBox)
+            if ((sender as PictureBox).ImageLocation == "../../Pictures/empty.png" || (sender as PictureBox).ImageLocation == "../../Pictures/emptyL.png" || (sender as PictureBox).ImageLocation == "../../Pictures/emptyR.png") {
+                DialogResult result = MessageBox.Show("Chceš si koupit sedačku: ano: koupit ne: reservovat", "Volba", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
+                if (result == DialogResult.Yes) {
+                    if ((sender as PictureBox).ImageLocation == "../../Pictures/empty.png") { (sender as PictureBox).ImageLocation = "../../Pictures/take.png"; }
+                    else if ((sender as PictureBox).ImageLocation == "../../Pictures/emptyL.png") {
+                        (sender as PictureBox).ImageLocation = @"../../Pictures/takeL.png";
+                        Seats[Int32.Parse((sender as PictureBox).Name.Split(':')[1]), Int32.Parse((sender as PictureBox).Name.Split(':')[2]) + 1].ImageLocation = @"../../Pictures/takeR.png";
+                    }
+                    else if ((sender as PictureBox).ImageLocation == "../../Pictures/emptyR.png") {
+                        (sender as PictureBox).ImageLocation = @"../../Pictures/takeR.png";
+                        Seats[Int32.Parse((sender as PictureBox).Name.Split(':')[1]), Int32.Parse((sender as PictureBox).Name.Split(':')[2]) - 1].ImageLocation = @"../../Pictures/takeL.png";
+                    }
+                }
+                else if (result == DialogResult.No) {
+                    if ((sender as PictureBox).ImageLocation == "../../Pictures/empty.png") { (sender as PictureBox).ImageLocation = "../../Pictures/reserve.png"; }
+                    else if ((sender as PictureBox).ImageLocation == "../../Pictures/emptyL.png") {
+                        (sender as PictureBox).ImageLocation = @"../../Pictures/reserveL.png";
+                        Seats[Int32.Parse((sender as PictureBox).Name.Split(':')[1]), Int32.Parse((sender as PictureBox).Name.Split(':')[2]) + 1].ImageLocation = @"../../Pictures/reserveR.png";
+                    }
+                    else if ((sender as PictureBox).ImageLocation == "../../Pictures/emptyR.png") {
+                        (sender as PictureBox).ImageLocation = @"../../Pictures/reserveR.png";
+                        Seats[Int32.Parse((sender as PictureBox).Name.Split(':')[1]), Int32.Parse((sender as PictureBox).Name.Split(':')[2]) - 1].ImageLocation = @"../../Pictures/reserveL.png";
+                    }
+                }
+            }
+            else {
+                DialogResult result = MessageBox.Show("Chceš zrušit rezervaci?", "Volba", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (result == DialogResult.Yes) {
+                    if ((sender as PictureBox).ImageLocation == "../../Pictures/reserve.png" || (sender as PictureBox).ImageLocation == "../../Pictures/take.png") { (sender as PictureBox).ImageLocation = "../../Pictures/empty.png"; }
+                    else if ((sender as PictureBox).ImageLocation == "../../Pictures/reserveL.png" || (sender as PictureBox).ImageLocation == "../../Pictures/takeL.png") {
+                        (sender as PictureBox).ImageLocation = @"../../Pictures/emptyL.png";
+                        Seats[Int32.Parse((sender as PictureBox).Name.Split(':')[1]), Int32.Parse((sender as PictureBox).Name.Split(':')[2]) + 1].ImageLocation = @"../../Pictures/emptyR.png";
+                    }
+                    else if ((sender as PictureBox).ImageLocation == "../../Pictures/reserveR.png" || (sender as PictureBox).ImageLocation == "../../Pictures/takeR.png") {
+                        (sender as PictureBox).ImageLocation = @"../../Pictures/emptyR.png";
+                        Seats[Int32.Parse((sender as PictureBox).Name.Split(':')[1]), Int32.Parse((sender as PictureBox).Name.Split(':')[2]) - 1].ImageLocation = @"../../Pictures/emptyL.png";
+                    }
+                }
+            }
         }
     }
 }
