@@ -75,7 +75,7 @@ namespace PerfectKinosal {
                                 line = i + j + "$../../Pictures/emptyR.png"; 
                                 GnrDoub = false;
                             } 
-                            else { line = i + j + "$../../Pictures/reserve.png"; GnrDoub = true; }
+                            else { line = i + j + "$../../Pictures/empty.png"; GnrDoub = true; }
                         }
                         if (restriction && ((i % 2 == 0 && j == 0) || (i % 2 != 0 && j == 1 && (line.Split('$')[1] != "../../Pictures/emptyR.png" && line.Split('$')[1] != "../../Pictures/reserveR.png" && line.Split('$')[1] != "../../Pictures/takeR.png")))) { line = i + j + "$../../Pictures/block.png"; }
                         else if (j > 0) {
@@ -102,8 +102,6 @@ namespace PerfectKinosal {
             AdminLogin.Show();
 		}
         private void ChangeSeat(object sender, EventArgs e) {
-            //MessageBox.Show((sender as PictureBox).Name); 
-            //vybrání rezervace - koupení / (sender as PictureBox)
             if ((sender as PictureBox).ImageLocation == "../../Pictures/empty.png" || (sender as PictureBox).ImageLocation == "../../Pictures/emptyL.png" || (sender as PictureBox).ImageLocation == "../../Pictures/emptyR.png") {
                 DialogResult result = MessageBox.Show("Chceš si koupit sedačku: ano: koupit ne: reservovat", "Volba", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
                 if (result == DialogResult.Yes) {

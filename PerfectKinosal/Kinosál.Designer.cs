@@ -35,7 +35,7 @@
             // buttonLogin
             // 
             this.buttonLogin.Location = new System.Drawing.Point(653, 384);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(131, 52);
             this.buttonLogin.TabIndex = 0;
