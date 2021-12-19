@@ -1,7 +1,3 @@
-admin$heslo
-admin1$heslo1
-admin2$heslo2
-admin3$heslo3
-Nitram293$necumpico
-Filgas$123456
-trosecnik13$letadlo
+YWRtaW4xJGhlc2xvMQ==
+YWRtaW4yJGhlc2xvMg==
+YWRtaW4zJGhlc2xvMw==

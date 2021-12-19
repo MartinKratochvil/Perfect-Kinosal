@@ -15,21 +15,21 @@ namespace PerfectKinosal {
             InitializeComponent();
         }
         private void Kinosál_FormClosed(object sender, FormClosedEventArgs e) {
-            using (StreamWriter write = File.CreateText(@"../../save.txt")) {
+            using (StreamWriter write = File.CreateText(@"../../Save.txt")) {
                 for (int i = 0; i < SizeLine; ++i) {
                     for (int j = 0; j < SizeSeat; j++) {
                         if (Seats[i, j].ImageLocation == "../../Pictures/block.png") {
                             if (j < SizeSeat - 1 && Seats[i, j + 1].ImageLocation == "../../Pictures/block.png") {
-                                write.WriteLine(i.ToString() + j.ToString() + "$../../Pictures/emptyL.png");
+                                write.WriteLine(Encode(i.ToString() + j.ToString() + "$../../Pictures/emptyL.png"));
                             }
                             else if (j > 0 && Seats[i, j - 1].ImageLocation == "../../Pictures/emptyL.png") {
-                                write.WriteLine(i.ToString() + j.ToString() + "$../../Pictures/emptyR.png");
+                                write.WriteLine(Encode(i.ToString() + j.ToString() + "$../../Pictures/emptyR.png"));
                             }
                             else {
-                                write.WriteLine(i.ToString() + j.ToString() + "$../../Pictures/empty.png");
+                                write.WriteLine(Encode(i.ToString() + j.ToString() + "$../../Pictures/empty.png"));
                             }
                         }
-                        else { write.WriteLine(i.ToString() + j.ToString() + "$" + Seats[i, j].ImageLocation); }
+                        else { write.WriteLine(Encode(i.ToString() + j.ToString() + "$" + Seats[i, j].ImageLocation)); }
                     }
                 }
             }
@@ -52,21 +52,21 @@ namespace PerfectKinosal {
         private void Kinosál_Load(object sender, EventArgs e) {
             bool restriction;
             using (StreamReader read = File.OpenText(@"../../sedacky.txt")) {
-                string line = read.ReadLine();
+                string line = Decode(read.ReadLine());
                 SizeLine = Int32.Parse(line.Split('$')[0]);
                 SizeSeat = Int32.Parse(line.Split('$')[1]);
                 Seats = new PictureBox[SizeLine, SizeSeat];
-                line = read.ReadLine();
+                line = Decode(read.ReadLine());
                 if (line.Split('=')[1] == "true" ) { restriction = true; }
                 else { restriction = false; }
             }
-            using (StreamReader read = File.OpenText(@"../../save.txt")) {
+            using (StreamReader read = File.OpenText(@"../../Save.txt")) {
                 Random rnd = new Random();
                 bool GnrDoub = false;
                 for (int i = 0; i < SizeLine; i++) {
                     string line = "", subLine = "";
                     for (int j = 0; j < SizeSeat; j++) {
-                        if (subLine == "") { line = read.ReadLine(); GnrDoub = false; }
+                        if (subLine == "") { line = Decode(read.ReadLine()); GnrDoub = false; }
                         else { line = subLine; subLine = ""; }
                         if (line == null || line.Split('$')[0] != i.ToString() + j.ToString()) { 
                             subLine = line;
@@ -75,7 +75,7 @@ namespace PerfectKinosal {
                                 line = i + j + "$../../Pictures/emptyR.png"; 
                                 GnrDoub = false;
                             } 
-                            else { line = i + j + "$../../Pictures/reserve.png"; GnrDoub = true; }
+                            else { line = i + j + "$../../Pictures/empty.png"; GnrDoub = true; }
                         }
                         if (restriction && ((i % 2 == 0 && j == 0) || (i % 2 != 0 && j == 1 && (line.Split('$')[1] != "../../Pictures/emptyR.png" && line.Split('$')[1] != "../../Pictures/reserveR.png" && line.Split('$')[1] != "../../Pictures/takeR.png")))) { line = i + j + "$../../Pictures/block.png"; }
                         else if (j > 0) {
@@ -102,8 +102,6 @@ namespace PerfectKinosal {
             AdminLogin.Show();
 		}
         private void ChangeSeat(object sender, EventArgs e) {
-            //MessageBox.Show((sender as PictureBox).Name); 
-            //vybrání rezervace - koupení / (sender as PictureBox)
             if ((sender as PictureBox).ImageLocation == "../../Pictures/empty.png" || (sender as PictureBox).ImageLocation == "../../Pictures/emptyL.png" || (sender as PictureBox).ImageLocation == "../../Pictures/emptyR.png") {
                 DialogResult result = MessageBox.Show("Chceš si koupit sedačku: ano: koupit ne: reservovat", "Volba", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
                 if (result == DialogResult.Yes) {
@@ -142,6 +140,28 @@ namespace PerfectKinosal {
                         Seats[Int32.Parse((sender as PictureBox).Name.Split(':')[1]), Int32.Parse((sender as PictureBox).Name.Split(':')[2]) - 1].ImageLocation = @"../../Pictures/emptyL.png";
                     }
                 }
+            }
+        }
+
+        public string Encode(string input)
+        {
+            if (input == null) { return null; }
+            else
+            {
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(input);
+                string encoded = System.Convert.ToBase64String(plainTextBytes);
+                return encoded;
+            }
+        }
+
+        public string Decode(string input)
+        {
+            if (input == null) { return null; }
+            else
+            {
+                var encodedTextBytes = Convert.FromBase64String(input);
+                string decoded = Encoding.UTF8.GetString(encodedTextBytes);
+                return decoded;
             }
         }
     }

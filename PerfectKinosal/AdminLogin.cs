@@ -29,7 +29,7 @@ namespace PerfectKinosal
 
 				while (find_login == false && konec == false)
 				{
-					string line = read.ReadLine();
+					string line = Decode(read.ReadLine());
 					if (line == null) { konec = true; }
 					else if (line.StartsWith(name) && line.Split('$')[1] == password) {
 						find_login = true;
@@ -39,6 +39,33 @@ namespace PerfectKinosal
 					}
 				}
 				if (find_login == false) { MessageBox.Show("Špatné přihlašovací údaje!"); }
+			}
+		}
+
+		private void AdminLogin_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		public string Encode(string input)
+		{
+			if (input == null) { return null; }
+			else
+			{
+				var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(input);
+				string encoded = System.Convert.ToBase64String(plainTextBytes);
+				return encoded;
+			}
+		}
+
+		public string Decode(string input)
+		{
+			if (input == null) { return null; }
+			else
+			{
+				var encodedTextBytes = Convert.FromBase64String(input);
+				string decoded = Encoding.UTF8.GetString(encodedTextBytes);
+				return decoded;
 			}
 		}
 	}
