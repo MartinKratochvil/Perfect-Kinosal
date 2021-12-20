@@ -54,7 +54,7 @@ namespace PerfectKinosal {
 			else {
 				var encodedTextBytes = Convert.FromBase64String(input);
 				string decoded = Encoding.UTF8.GetString(encodedTextBytes);
-				return decoded;-+
+                return decoded;
 			}
 		}
 	}
