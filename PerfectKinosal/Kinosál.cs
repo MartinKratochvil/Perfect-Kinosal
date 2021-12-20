@@ -19,7 +19,6 @@ namespace PerfectKinosal {
                 for (int i = 0; i < SizeLine; i++) {
                     for (int j = 0; j < SizeSeat; j++) {
                         if (Seats[i, j].ImageLocation == "../../Pictures/block.png") {
-                            MessageBox.Show("block" + i.ToString() + j.ToString());
                             if (j < SizeSeat - 1 && Seats[i, j + 1].ImageLocation == "../../Pictures/block.png") {
                                 write.WriteLine(/*Encode*/(i.ToString() + j.ToString() + "$../../Pictures/emptyL.png"));
                                 write.WriteLine(/*Encode*/(i.ToString() + (j + 1).ToString() + "$../../Pictures/emptyR.png"));
@@ -86,9 +85,9 @@ namespace PerfectKinosal {
                         Seats[i, j] = new PictureBox {
                             Name = "pictureBox:" + i.ToString() + ":" + j.ToString(),
                             Size = new Size(30, 30),
-                            Location = new Point(33 * j + 30, 33 * i + 30),
+                            Location = new Point(30 * j + 30, 30 * i + 30),
                             ImageLocation = @line.Split('$')[1],
-                            BackColor = Color.Black
+                            SizeMode = PictureBoxSizeMode.StretchImage
                         };
                         Seats[i,j].Click += new EventHandler(ChangeSeat);
                         this.Controls.Add(Seats[i, j]);
