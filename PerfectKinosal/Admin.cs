@@ -41,26 +41,20 @@ namespace PerfectKinosal {
         private void buttonBack_Click(object sender, EventArgs e) {
 			this.Close();
         }
-
-		public string Encode(string input)
-		{
+		public string Encode(string input) {
 			if (input == null) { return null; }
-			else
-			{
+			else {
 				var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(input);
 				string encoded = System.Convert.ToBase64String(plainTextBytes);
 				return encoded;
 			}
 		}
-
-		public string Decode(string input)
-		{
+		public string Decode(string input) {
 			if (input == null) { return null; }
-			else
-			{
+			else {
 				var encodedTextBytes = Convert.FromBase64String(input);
 				string decoded = Encoding.UTF8.GetString(encodedTextBytes);
-				return decoded;
+				return decoded;-+
 			}
 		}
 	}

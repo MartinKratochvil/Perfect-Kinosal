@@ -1,2 +1,4 @@
 NSQxMA==
 cmVzdHJpa2NlPXRydWU=
+5$10
+restrikce=true
