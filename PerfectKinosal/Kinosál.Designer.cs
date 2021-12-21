@@ -52,11 +52,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(818, 497);
-            this.MinimumSize = new System.Drawing.Size(818, 497);
+            this.MinimumSize = new System.Drawing.Size(500, 300);
             this.Name = "Kinosál";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Kinosál";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Kinosál_FormClosed);
             this.Load += new System.EventHandler(this.Kinosál_Load);
             this.ResumeLayout(false);

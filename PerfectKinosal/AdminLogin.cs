@@ -32,9 +32,6 @@ namespace PerfectKinosal {
 				if (find_login == false) { MessageBox.Show("Špatné přihlašovací údaje!"); }
 			}
 		}
-		private void AdminLogin_Load(object sender, EventArgs e) {
-
-		}
 		public string Decode(string input) {
 			if (input == null) { return null; }
 			else {
@@ -43,5 +40,9 @@ namespace PerfectKinosal {
 				return decoded;
 			}
 		}
-	}
+        private void AdminLogin_FormClosed(object sender, FormClosedEventArgs e) {
+			Kinosál frame = new Kinosál();
+			frame.Show();
+        }
+    }
 }
