@@ -43,27 +43,32 @@
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(137, 134);
+            this.buttonReset.BackColor = System.Drawing.Color.Black;
+            this.buttonReset.Location = new System.Drawing.Point(152, 107);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(106, 35);
             this.buttonReset.TabIndex = 0;
             this.buttonReset.Text = "Resetování kina";
-            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.UseVisualStyleBackColor = false;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // buttonNastavitPocetSedacek
             // 
-            this.buttonNastavitPocetSedacek.Location = new System.Drawing.Point(17, 134);
+            this.buttonNastavitPocetSedacek.BackColor = System.Drawing.Color.Black;
+            this.buttonNastavitPocetSedacek.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonNastavitPocetSedacek.Location = new System.Drawing.Point(37, 107);
             this.buttonNastavitPocetSedacek.Name = "buttonNastavitPocetSedacek";
             this.buttonNastavitPocetSedacek.Size = new System.Drawing.Size(96, 35);
             this.buttonNastavitPocetSedacek.TabIndex = 1;
             this.buttonNastavitPocetSedacek.Text = "Uložit nastavení";
-            this.buttonNastavitPocetSedacek.UseVisualStyleBackColor = true;
+            this.buttonNastavitPocetSedacek.UseVisualStyleBackColor = false;
             this.buttonNastavitPocetSedacek.Click += new System.EventHandler(this.buttonNastavitPocetSedacek_Click);
             // 
             // numericUpDownRady
             // 
-            this.numericUpDownRady.Location = new System.Drawing.Point(138, 40);
+            this.numericUpDownRady.BackColor = System.Drawing.Color.Black;
+            this.numericUpDownRady.ForeColor = System.Drawing.SystemColors.Control;
+            this.numericUpDownRady.Location = new System.Drawing.Point(140, 18);
             this.numericUpDownRady.Maximum = new decimal(new int[] {
             10,
             0,
@@ -85,7 +90,9 @@
             // 
             // numericUpDownSedacky
             // 
-            this.numericUpDownSedacky.Location = new System.Drawing.Point(137, 71);
+            this.numericUpDownSedacky.BackColor = System.Drawing.Color.Black;
+            this.numericUpDownSedacky.ForeColor = System.Drawing.SystemColors.Control;
+            this.numericUpDownSedacky.Location = new System.Drawing.Point(139, 49);
             this.numericUpDownSedacky.Maximum = new decimal(new int[] {
             20,
             0,
@@ -108,7 +115,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 42);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(76, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 4;
@@ -117,7 +125,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 73);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(17, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 5;
@@ -126,29 +135,33 @@
             // checkBoxRestrikce
             // 
             this.checkBoxRestrikce.AutoSize = true;
-            this.checkBoxRestrikce.Location = new System.Drawing.Point(137, 106);
+            this.checkBoxRestrikce.BackColor = System.Drawing.SystemColors.ControlText;
+            this.checkBoxRestrikce.Location = new System.Drawing.Point(139, 84);
             this.checkBoxRestrikce.Name = "checkBoxRestrikce";
             this.checkBoxRestrikce.Size = new System.Drawing.Size(71, 17);
             this.checkBoxRestrikce.TabIndex = 6;
             this.checkBoxRestrikce.Text = "Restrikce";
-            this.checkBoxRestrikce.UseVisualStyleBackColor = true;
+            this.checkBoxRestrikce.UseVisualStyleBackColor = false;
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(191, 203);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBack.BackColor = System.Drawing.Color.Black;
+            this.buttonBack.Location = new System.Drawing.Point(181, 156);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(77, 34);
             this.buttonBack.TabIndex = 7;
             this.buttonBack.Text = "Zpět";
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 247);
+            this.BackColor = System.Drawing.SystemColors.ControlText;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(284, 211);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.checkBoxRestrikce);
             this.Controls.Add(this.label2);
@@ -157,8 +170,11 @@
             this.Controls.Add(this.numericUpDownRady);
             this.Controls.Add(this.buttonNastavitPocetSedacek);
             this.Controls.Add(this.buttonReset);
+            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Admin_FormClosed);
             this.Load += new System.EventHandler(this.Admin_Load);

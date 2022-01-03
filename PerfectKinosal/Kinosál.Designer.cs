@@ -34,29 +34,30 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(708, 421);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonLogin.BackColor = System.Drawing.Color.DimGray;
+            this.buttonLogin.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonLogin.Location = new System.Drawing.Point(531, 342);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(131, 52);
+            this.buttonLogin.Size = new System.Drawing.Size(98, 42);
             this.buttonLogin.TabIndex = 0;
             this.buttonLogin.Text = "Administrátorský panel";
-            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // Kinosál
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(884, 487);
+            this.ClientSize = new System.Drawing.Size(663, 396);
             this.Controls.Add(this.buttonLogin);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(499, 298);
+            this.MinimumSize = new System.Drawing.Size(378, 249);
             this.Name = "Kinosál";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kinosál";
