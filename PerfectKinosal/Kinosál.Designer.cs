@@ -34,9 +34,10 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(531, 342);
+            this.buttonLogin.Location = new System.Drawing.Point(708, 421);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(98, 42);
+            this.buttonLogin.Size = new System.Drawing.Size(131, 52);
             this.buttonLogin.TabIndex = 0;
             this.buttonLogin.Text = "Administrátorský panel";
             this.buttonLogin.UseVisualStyleBackColor = true;
@@ -44,15 +45,18 @@
             // 
             // Kinosál
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(663, 396);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(884, 487);
             this.Controls.Add(this.buttonLogin);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(379, 251);
+            this.MinimumSize = new System.Drawing.Size(499, 298);
             this.Name = "Kinosál";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kinosál";

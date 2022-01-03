@@ -18,13 +18,13 @@ namespace PerfectKinosal {
 			string name = textBox1.Text;
 			string password = textBox2.Text;
 			using (StreamReader read = File.OpenText(@"../../admin_login.txt")) {
-				bool find_login = false, konec=false;
+				bool find_login = false, konec = false;
 				while (find_login == false && konec == false) {
 					string line = Decode(read.ReadLine());
 					if (line == null) { konec = true; }
-					else if (line.StartsWith(name) && line.Split('$')[1] == password) {
+					else if (line.Split('$')[0] == name && line.Split('$')[1] == password) {
 						find_login = true;
-						this.Close();
+						this.Hide();
 						Admin Admin = new Admin();
 						Admin.Show();
 					}

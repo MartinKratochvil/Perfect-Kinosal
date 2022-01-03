@@ -34,18 +34,6 @@ namespace PerfectKinosal {
             }
             Application.Exit();
         }
-        //write to text file
-        /*using (StreamWriter write = File.AppendText(@"Adress file")) {  //AppendText - CreateText
-            write.WriteLine("Some text...");
-        }*/
-        //read from text file
-        /*using (StreamReader read = File.OpenText(@"Adress file")) {
-            string line = read.ReadLine();
-            for (int i = 0; line != null; ++i) {
-                Array[i] = line;
-                line = read.ReadLine();
-            }
-        }*/
         public static int SizeLine = 5, SizeSeat = 8;
         PictureBox[,] Seats;
         private void Kinosál_Load(object sender, EventArgs e) {
@@ -87,7 +75,8 @@ namespace PerfectKinosal {
                             Size = new Size(30, 30),
                             Location = new Point(30 * j + 30, 30 * i + 30),
                             ImageLocation = @line.Split('$')[1],
-                            SizeMode = PictureBoxSizeMode.StretchImage
+                            SizeMode = PictureBoxSizeMode.StretchImage,
+                            BackColor = Color.Transparent
                         };
                         Seats[i,j].Click += new EventHandler(ChangeSeat);
                         this.Controls.Add(Seats[i, j]);
@@ -126,6 +115,7 @@ namespace PerfectKinosal {
                     }
                 }
             }
+            else if ((sender as PictureBox).ImageLocation == "../../Pictures/block.png") { }
             else {
                 DialogResult result = MessageBox.Show("Chceš zrušit rezervaci?", "Volba", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 if (result == DialogResult.Yes) {
