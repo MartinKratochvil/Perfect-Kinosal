@@ -15,20 +15,22 @@ namespace PerfectKinosal {
             InitializeComponent();
         }
         private void Kinosál_FormClosed(object sender, FormClosedEventArgs e) {
-            using (StreamWriter write = File.CreateText(@"../../Save.txt")) {
-                for (int i = 0; i < SizeLine; i++) {
-                    for (int j = 0; j < SizeSeat; j++) {
-                        if (Seats[i, j].ImageLocation == "../../Pictures/block.png") {
-                            if (j < SizeSeat - 1 && Seats[i, j + 1].ImageLocation == "../../Pictures/block.png") {
-                                write.WriteLine(Encode(i.ToString() + j.ToString() + "$../../Pictures/emptyL.png"));
-                                write.WriteLine(Encode(i.ToString() + (j + 1).ToString() + "$../../Pictures/emptyR.png"));
-                                j++;
+            if (!Admin.ClearSave) {
+                using (StreamWriter write = File.CreateText(@"../../Save.txt")) {
+                    for (int i = 0; i < SizeLine; i++) {
+                        for (int j = 0; j < SizeSeat; j++) {
+                            if (Seats[i, j].ImageLocation == "../../Pictures/block.png") {
+                                if (j < SizeSeat - 1 && Seats[i, j + 1].ImageLocation == "../../Pictures/block.png") {
+                                    write.WriteLine(Encode(i.ToString() + j.ToString() + "$../../Pictures/emptyL.png"));
+                                    write.WriteLine(Encode(i.ToString() + (j + 1).ToString() + "$../../Pictures/emptyR.png"));
+                                    j++;
+                                }
+                                else {
+                                    write.WriteLine(Encode(i.ToString() + j.ToString() + "$../../Pictures/empty.png"));
+                                }
                             }
-                            else {
-                                write.WriteLine(Encode(i.ToString() + j.ToString() + "$../../Pictures/empty.png"));
-                            }
+                            else { write.WriteLine(Encode(i.ToString() + j.ToString() + "$" + Seats[i, j].ImageLocation)); }
                         }
-                        else { write.WriteLine(Encode(i.ToString() + j.ToString() + "$" + Seats[i, j].ImageLocation)); }
                     }
                 }
             }
@@ -47,6 +49,8 @@ namespace PerfectKinosal {
                 if (line.Split('=')[1] == "true" ) { restriction = true; }
                 else { restriction = false; }
             }
+            this.Size = new Size(30 * SizeSeat + 75, 30 * SizeLine + 130);
+            buttonLogin.Location = new Point(this.Size.Width - 230, this.Size.Height - 90);
             using (StreamReader read = File.OpenText(@"../../Save.txt")) {
                 Random rnd = new Random();
                 bool GnrDoub = false;
@@ -134,8 +138,8 @@ namespace PerfectKinosal {
         public string Encode(string input) {
             if (input == null) { return null; }
             else {
-                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(input);
-                string encoded = System.Convert.ToBase64String(plainTextBytes);
+                var plainTextBytes = Encoding.UTF8.GetBytes(input);
+                string encoded = Convert.ToBase64String(plainTextBytes);
                 return encoded;
             }
         }

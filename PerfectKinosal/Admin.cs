@@ -14,9 +14,9 @@ namespace PerfectKinosal {
 		public Admin() {
 			InitializeComponent();
 		}
+		public static bool ClearSave = false;
 		private void Admin_FormClosed(object sender, FormClosedEventArgs e) {
-			Kinosál frame = new Kinosál();
-			frame.Show();
+			Application.Exit();
         }
 		private void Admin_Load(object sender, EventArgs e) {
 			using (StreamReader read = File.OpenText(@"../../sedacky.txt")) {
@@ -36,16 +36,17 @@ namespace PerfectKinosal {
 			}
 		}
 		private void buttonReset_Click(object sender, EventArgs e) {
-			StreamWriter write = File.CreateText(@"../../sedacky.txt");
+			StreamWriter write = File.CreateText(@"../../Save.txt");
+			ClearSave = true;
 		}
-        private void buttonBack_Click(object sender, EventArgs e) {
-			this.Close();
+        private void buttonEnd_Click(object sender, EventArgs e) {
+			Application.Exit();
         }
 		public string Encode(string input) {
 			if (input == null) { return null; }
 			else {
-				var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(input);
-				string encoded = System.Convert.ToBase64String(plainTextBytes);
+				var plainTextBytes = Encoding.UTF8.GetBytes(input);
+				string encoded = Convert.ToBase64String(plainTextBytes);
 				return encoded;
 			}
 		}
@@ -57,5 +58,5 @@ namespace PerfectKinosal {
                 return decoded;
 			}
 		}
-	}
+    }
 }

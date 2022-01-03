@@ -14,6 +14,9 @@ namespace PerfectKinosal {
 		public AdminLogin() {
 			InitializeComponent();
 		}
+		private void AdminLogin_FormClosed(object sender, FormClosedEventArgs e) {
+			Application.Exit();
+        }
 		private void buttonLogin_Click(object sender, EventArgs e) {
 			string name = textBox1.Text;
 			string password = textBox2.Text;
@@ -40,9 +43,5 @@ namespace PerfectKinosal {
 				return decoded;
 			}
 		}
-        private void AdminLogin_FormClosed(object sender, FormClosedEventArgs e) {
-			Kinosál frame = new Kinosál();
-			frame.Show();
-        }
     }
 }
